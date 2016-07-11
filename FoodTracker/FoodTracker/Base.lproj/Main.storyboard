@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -45,6 +46,16 @@
                                     <constraint firstItem="wU1-9I-suQ" firstAttribute="top" secondItem="vKF-P8-DaL" secondAttribute="bottom" id="0nv-0h-Dbg"/>
                                 </constraints>
                             </stackView>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Jqy-79-TTK">
+                                <rect key="frame" x="20" y="185" width="320" height="320"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Jqy-79-TTK" secondAttribute="height" multiplier="1:1" id="Ox7-ze-Ndy"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="3EW-rw-UaS" appends="YES" id="3Ay-Cz-Hey"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -56,11 +67,20 @@
                     <connections>
                         <outlet property="mealNameLabel" destination="2vn-Mp-rHe" id="KQ5-8b-fCg"/>
                         <outlet property="nameTextField" destination="vKF-P8-DaL" id="PVW-q7-vOg"/>
+                        <outlet property="photoImageView" destination="Jqy-79-TTK" id="fVw-00-yWa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3EW-rw-UaS">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="cZi-oS-j4S"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="440" y="369"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPhoto" width="152" height="235"/>
+    </resources>
 </document>
